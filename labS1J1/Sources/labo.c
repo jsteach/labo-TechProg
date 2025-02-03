@@ -41,5 +41,18 @@ int String_is_palindrome(String* s)
 
 void bubbleSort(int elements[], int n)
 {
-
+    int tempo = 0;
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (elements[j] > elements[j + 1]) {
+                tempo = elements[j];
+                elements[j] = elements[j + 1];
+                elements[j + 1] = tempo;
+            }
+            else {
+                continue;
+            }
+                
+        }
+    }
 }
