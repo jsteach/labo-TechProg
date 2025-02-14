@@ -1,0 +1,4 @@
+Exercice0
+10 O(n)
+20 O(n)
+Total O(n)

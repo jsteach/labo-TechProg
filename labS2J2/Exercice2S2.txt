@@ -1,0 +1,3 @@
+Exercice2
+6 O(n)
+Total O(n)
