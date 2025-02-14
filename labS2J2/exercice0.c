@@ -4,21 +4,21 @@
 void combine(int arr[], int left, int m, int right)
 {
 	int i, j, k;
-	int n1 = m - left + 1;
-	int n2 = right - m;
+	int n1 = m - left + 1; //4
+	int n2 = right - m; //3
 
 	
 	int Left[128], Right[128];
 
 	for (i = 0; i < n1; i++)
-		Left[i] = arr[left + i];
-	for (j = 0; j < n2; j++)
+		Left[i] = arr[left + i];		//O(n)
+	for (j = 0; j < n2; j++)			//O(n)
 		Right[j] = arr[m + 1 + j];
 
 	i = 0;
 	j = 0; 
 	k = left; 
-	while (i < n1 && j < n2) {
+	while (i < n1 && j < n2) {			//O(n)
 		if (Left[i] <= Right[j]) {
 			arr[k] = Left[i];
 			i++;
@@ -30,25 +30,26 @@ void combine(int arr[], int left, int m, int right)
 		k++;
 	}
 
-	while (i < n1) {
+	while (i < n1) {  //O(n)
 		arr[k] = Left[i];
 		i++;
 		k++;
 	}
 
-	while (j < n2) {
+	while (j < n2) { //O(n)
 		arr[k] = Right[j];
 		j++;
 		k++;
 	}
-}
+} //O(n(log(n)))
 
 
 void sort(int arr[], int left, int right)
 {
 	if (left < right) {
-		int m = left + (right - left) / 2;
+		int m = left + (right - left) / 2; 
 
+//O(log(n))
 		sort(arr, left, m);
 		sort(arr, m + 1, right);
 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define RANGE 9
+#define RANGE 9     //O(1)
 
 void sort(int arr[], int length)
 {
@@ -9,23 +9,23 @@ void sort(int arr[], int length)
     int count[RANGE + 1], i;
     memset(count, 0, sizeof(count) * (RANGE + 1));
 
-    for (i = 0; arr[i]; ++i)
+    for (i = 0; arr[i]; ++i)        //O(n)
         ++count[arr[i]];
 
-    for (i = 0; i <= RANGE; ++i){
+    for (i = 0; i <= RANGE; ++i){           //O(n)
         count[i] += count[i - 1];
     }
 
-    for (i = 0; arr[i]; ++i) {
+    for (i = 0; arr[i]; ++i) {                  //O(n)
         output[count[arr[i]] - 1] = arr[i];
         --count[arr[i]];
     }
 
-    for (i = 0; arr[i]; ++i){
+    for (i = 0; arr[i]; ++i){                   //O(n)
         arr[i] = output[i];
     }
         
-}
+}           //O(n)
 
 //Main fourni à titre d'exemple
 int main()

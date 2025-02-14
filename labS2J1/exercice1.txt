@@ -1,0 +1,7 @@
+10: O(n)
+13: O(n)
+22: O(n^2), car for() (ligne 13) est dans for() (linge 10)
+
+31: O(n)
+
+total: O(n^2)
