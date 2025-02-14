@@ -1,0 +1,5 @@
+excercice1.c
+-l.31 O(log n)    
+-l.32 O(1)
+-l.34 O(1)
+Total:O(n^2)  
