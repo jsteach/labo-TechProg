@@ -1,0 +1,5 @@
+L52= O(log n)
+L53= O(log n)
+L55= O(n)
+
+TOTAL= O(nlog n)

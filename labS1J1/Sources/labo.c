@@ -47,6 +47,22 @@ int String_is_palindrome(String* s)
 
 }
 
-void bubbleSort(int elements[], int n)
-{
+void bubbleSort(int elements[], int n) {
+	int echanger;
+	for (int i = 0; i < n - 1; i++) {
+		echanger = 0; // Réinitialiser echanger à chaque passe
+		for (int j = 0; j < n - 1 - i; j++) { // Réduire la portée à chaque passe
+			if (elements[j] > elements[j + 1]) {
+				// Échange avec une variable temporaire
+				int temp = elements[j];
+				elements[j] = elements[j + 1];
+				elements[j + 1] = temp;
+				echanger = 1; // Indiquer qu'un échange a eu lieu
+			}
+		}
+		// Si aucun échange n'a eu lieu, le tableau est déjà trié
+		if (echanger == 0) {
+			break;
+		}
+	}
 }
