@@ -6,64 +6,53 @@
 
 
 void insert(Node* currNode, void* newData) {
-	Node* newNode = allocate(sizeof(Node));
-	if (currNode == NULL){
+     Node* n = allocate(sizeof(Node));
+     n->data = newData;
+     n->next = NULL;
+	if (currNode->next == NULL){
+        currNode->next = n;
+        n->next = currNode->next;
         return;
     }
-	newNode->data = newData;
-	newNode->next = currNode->next;
-	currNode->next = NULL;
-    return NULL;
+    currNode->next = n;
 }
 
 void insertHead(Node* head, void* newData) {
-    if (head == NULL)  {
+    if (head->data == NULL) {
+        head->data = newData;
+        head->next = head;
         return;
     }
-	Node* newNode = allocate(sizeof(Node));
-	newNode->data = newData;
-	newNode->next = head->next;
-	head->next = newNode;
+    insert(head->next, newData);
 
 }
 
 Node* removeByData(Node* head, void* rmData) {
-    if (head == NULL || head->next == NULL) return NULL;
-
-    Node* prev = head;
-    Node* curr = head->next;
-
-    while (curr != NULL) {
-        if (curr->data == rmData) {
-            prev->next = curr->next;
-            memset(curr, 0, sizeof(Node));  // enlever le noeud en réinitialisant la mémoire
-            free(curr);
-            return prev;
-        }
-        prev = curr;
-        curr = curr->next;
+    Node* temp = head;
+    Node* last = NULL;
+    while (temp != NULL && temp->data != rmData) {
+        last = temp;
+        temp = temp->next;
     }
-    return NULL;
+    if (temp == NULL) {
+        return;
+    }
+    last->next = temp->next;
+    free(temp);
 }
 
 Node* removeByName(Node* head, char* name) {
-    if (head == NULL || head->next == NULL) return NULL;
-
-    Node* prev = head;
-    Node* curr = head->next;
-
-    while (curr != NULL) {
-        Person* person = (Person*)curr->data;
-        if (strcmp(person->name, name) == 0) {
-            prev->next = curr->next;
-            memset(curr, 0, sizeof(Node)); 
-            free(curr);
-            return prev;
-        }
-        prev = curr;
-        curr = curr->next;
+    Node* temp = head;
+    Node* last = NULL;
+    while (temp != NULL && temp->data != name) {
+        last = temp;
+        temp = temp->next;
     }
-    return NULL;
+    if (temp == NULL) {
+        return;
+    }
+    last->next = temp->next;
+    free(temp);
 }
 
 void sort(Node* head) {
