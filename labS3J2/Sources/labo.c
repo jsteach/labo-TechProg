@@ -58,5 +58,26 @@ Node* removeNode(Node* currNode) {
 
 
 void alphabetise(Node* head, char* names[]) {
+	//la vide pour la remettre en ordre
+	if (head == NULL || head->next == head) return;
 
+	int swapped;
+	Node* temp;
+	Node* last = NULL;
+
+	do {
+		swapped = 0;
+		temp = head;
+		while (temp->next != last) {
+			if (strcmp((char*)temp->data, (char*)temp->next->data) > 0) {
+				char* tempData = (char*)temp->data;
+				temp->data = temp->next->data;
+				temp->next->data = tempData;
+
+				swapped = 1;
+			}
+			temp = temp->next;
+		}
+		last = temp;
+	} while (swapped);
 }
