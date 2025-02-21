@@ -6,17 +6,21 @@
 
 
 void insert(Node* currNode, void* newData) {
-	if (currNode == NULL) return;
-
-	Node* newNode = (Node*)allocate(sizeof(Node));
+	Node* newNode = allocate(sizeof(Node));
+	if (currNode == NULL){
+        return;
+    }
 	newNode->data = newData;
 	newNode->next = currNode->next;
-	currNode->next = newNode;
+	currNode->next = NULL;
+    return NULL;
 }
 
 void insertHead(Node* head, void* newData) {
-	if (head == NULL) return;
-	Node* newNode = (Node*)allocate(sizeof(Node));
+    if (head == NULL)  {
+        return;
+    }
+	Node* newNode = allocate(sizeof(Node));
 	newNode->data = newData;
 	newNode->next = head->next;
 	head->next = newNode;
