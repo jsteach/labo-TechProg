@@ -1,0 +1,7 @@
+L6 O (n)
+L19 O (1)
+L21 O (n)
+L23 O (n)
+L29 O (1)
+L32 O (n)
+total O(n^2)
