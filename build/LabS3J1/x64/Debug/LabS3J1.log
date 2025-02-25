@@ -1,0 +1,15 @@
+﻿  labo.c
+  main.c
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\labo.c(1,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\labo.c(63,4): warning C4013: 'memset' non défini(e) ; extern retournant int pris par défaut
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\labo.c(72,3): warning C4033: 'removeByData' doit retourner une valeur
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\labo.c(75,2): warning C4013: 'free' non défini(e) ; extern retournant int pris par défaut
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\labo.c(101,3): warning C4033: 'removeByName' doit retourner une valeur
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\main.c(39,20): warning C4018: '>' : incompatibilité signed/unsigned
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\main.c(95,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\main.c(188,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\main.c(249,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\main.c(156,1): warning C4715: 'test_code' : les chemins de contrôle ne retournent pas tous une valeur
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\labo.c(76,1): warning C4715: 'removeByData' : les chemins de contrôle ne retournent pas tous une valeur
+D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS3J1\Sources\labo.c(105,1): warning C4715: 'removeByName' : les chemins de contrôle ne retournent pas tous une valeur
+  LabS3J1.vcxproj -> D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\build\x64\Debug\LabS3J1.exe

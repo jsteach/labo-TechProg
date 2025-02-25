@@ -7,6 +7,14 @@ void* allocate(size_t size);
 * Declarer une structure de donnee appeler Node qui est un noeud d'une liste doublement chainee.
 */
 
+typedef struct Node Node;
+
+struct Node {
+	void* data;
+	Node* prev;
+	Node* next;
+};
+
 typedef struct person_t {
 	char name[256];
 	size_t age;
@@ -19,12 +27,14 @@ typedef struct person_t {
 void insert(Node* currNode, void* newData);
 
 /*
-* Creer un noeud et l'ajouter apres le noeud de fin. Si le noeud head est vide(data) lui donner la nouvelle valeur passer.
+* Creer un noeud et l'ajouter apres le noeud de fin.
+* Si le noeud head est vide(data) lui donner la nouvelle valeur passer.
 */
 void insertTail(Node* head, void* newData);
 
 /*
-* Creer un noeud et l'ajouter apres le noeud head. Si le noeud head est vide(data) lui donner la nouvelle valeur passer.
+* Creer un noeud et l'ajouter apres le noeud head.
+* Si le noeud head est vide(data) lui donner la nouvelle valeur passer.
 */
 void insertHead(Node* head, void* newData);
 
@@ -34,6 +44,7 @@ void insertHead(Node* head, void* newData);
 Node* removeNode(Node* currNode);
 
 /*
-* Ajouter dans le tableau le nom de chacun en ordre alphabetic. Par simplicite, considerer seulement les deux premiere lettre.
+* Ajouter dans le tableau le nom de chacun en ordre alphabetic.
+* Par simplicite, considerer seulement les deux premiere lettre.
 */
 void alphabetise(Node* head, char* names[]);
