@@ -1,12 +1,15 @@
 #include <assert.h>
 #include <stdint.h>
+#include <string.h>
 
 void* allocate(size_t size);
 
+typedef struct Node Node;
 
-/*
-* Déclarer une structure de donnée appeler Node qui est un noeud d'une liste simplement chaînée.
-*/
+struct Node{
+	void* data;
+	Node* next;
+};
 
 typedef struct person_t {
 	char name[256];
