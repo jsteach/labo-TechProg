@@ -43,22 +43,41 @@ void* peek(Stack* s) {
 
 
 void reverseStack(Stack* s) {
-	//stack temporaire pour contenir les éléments
-	Stack* tempo = (Stack*)allocate(sizeof(Stack));
-	//tant que ma stack n'est pas vide,mettre l'élément le plus récent a l'aide de pop en premier dans la temporaire avec push
-	while (s != NULL) {//tant que la stack n'est pas vide
-		push(tempo,pop(s));
+	void* swap;
+	for (int i = 0; i < s->top-i; i++) {
+		swap = s->data[i];
+		s->data[i] = s->data[s->top-i];
+		s->data[s->top - i] = swap;
 	}
-	//indiquer que notre stack est maintenant égale a notre stack temporaire;
-	s = tempo;
 	
 }
 
 
 void sortStack(Stack* s) {
-	Stack* tempo = (Stack*)allocate(sizeof(Stack));
+	//stack temporaire 
 	
-	for (int i = 0; i < s->max_size; i++){
-
+	Stack* tempo = new_stack(s->max_size);
+	Person* TopPerson1 = NULL;
+	Person* TopPerson2 = NULL;
+	int y = 0;
+	for (int i = 0; i < s->top;i++) {//je sais cest bancale comme methode
+		while(s->top >= 1){
+			//prendre 2 top a comparer
+			TopPerson1 = pop(s);
+			TopPerson2 = pop(s);
+			//si person1 est plus petite que 2 , la mettre dans stack tempo pour ensuite lors du push dans la stack originale se met du plus grand(bas) au plus petit(haut)
+			if (TopPerson1->age < TopPerson2->age){
+				push(tempo, TopPerson1);
+				push(s, TopPerson2);
+			}
+			else {
+				push(tempo, TopPerson2);
+				push(s, TopPerson1);
+			}
+		}
+		//mettre les donné de tempo qui est organiser dans la stack originale
+		while (tempo->top != -1) {	
+			push(s, pop(tempo));
+		}
 	}
 }

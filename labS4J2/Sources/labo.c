@@ -47,20 +47,18 @@ Node* peek(Queue* q)
 
 void pushAsPriorityQueue(Queue* q, Node* n)
 {
-    if (!q || !n) return;
-
     Person* newPerson = (Person*)n->data;
-    Node* current = q;
+    Node* current = q->next;//commencer au debut->next, commencer par la fin ->prev
 
-    //Si la file est fide on ajoute le noeud.
+    //Si la file est vide on ajoute le noeud.
     if (q == NULL) {
         *q = *n;
         return;
     }
 
     // trouver la bonne position a l'aide de l'age
+    Person* currentPerson = (Person*)current->data;//on va faire reference a l'age
     while (current != NULL) {
-        Person* currentPerson = (Person*)current->data;
         if (newPerson->age <= currentPerson->age) {
             // Inserer avant le noeud current
             if (current->prev == NULL) {
@@ -70,7 +68,7 @@ void pushAsPriorityQueue(Queue* q, Node* n)
                 *q = *n;
             }
             else {
-                // mettre a la fin ou au debut
+                // mettre a fin ou au debut
                 n->prev = current->prev;
                 n->next = current;
                 current->prev->next = n;
@@ -81,7 +79,7 @@ void pushAsPriorityQueue(Queue* q, Node* n)
         current = current->next;
     }
 
-    // Si la loop fini on le met a fin
+    // Si la loop fini on met le noeud a fin
     push(q, n);
 }
 
@@ -89,9 +87,10 @@ void pushAsPriorityQueue(Queue* q, Node* n)
 
 void sortQueue(Queue* q)
 {
-    if (!q || q == NULL) return;
+    if (q !=NULL || q == NULL) return;
 
     Queue* NouvelleQueue = NULL;
+    //vu que priorityQueue est classé du plus jeune au plus vieu, on peu linverser.
     while (q != NULL) {
         //prendre la node de la queue non arranger
         Node* node = pop(q);  
