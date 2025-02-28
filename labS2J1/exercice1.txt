@@ -1,0 +1,6 @@
+ln10 O(n)
+ln13 O(n)
+ln14 O(m)
+ln15 O(n)
+ln31 O(n)
+Global O(nm)
