@@ -1,0 +1,3 @@
+Réponse :
+
+L'algorithme représenté est de complexité O(n+k). 
