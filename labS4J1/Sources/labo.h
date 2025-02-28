@@ -1,11 +1,18 @@
 #include <stdint.h>
 #include <assert.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 void* allocate(size_t size);
 
 /*
 * Declarer une structure de donner appeler Stack qui contient une propriete, max_size de type size_t,top de type size_t et un tableau de type void**.
 */
+typedef struct Stack {
+	int max_size;
+	int top;
+	void** data;
+}Stack;
 
 typedef struct person_t {
 	char name[256];
@@ -15,6 +22,7 @@ typedef struct person_t {
 /*
 * Creer la fonction d'initialization. Utiliser la fonction allocate au lieu de malloc.
 */
+
 Stack* new_stack(size_t max_size);
 
 /*
