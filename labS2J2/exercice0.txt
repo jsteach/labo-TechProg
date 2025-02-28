@@ -1,0 +1,4 @@
+21: O(n)
+49: o(log(n))
+
+total: O(n(log(n)))
