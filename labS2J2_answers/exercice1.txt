@@ -1,0 +1,11 @@
+l6 O(n)
+l7 O(1)
+l17 O(log n)
+l21 O(log n)
+l22 O(1)
+l25 O(n)
+l31 O(1)
+l32 (n)
+Total O(n log n)
+
+
