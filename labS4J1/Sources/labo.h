@@ -12,6 +12,12 @@ typedef struct person_t {
 	size_t age;
 } Person;
 
+typedef struct Stack {
+	size_t max_size;
+	int top;
+	void** data;
+} Stack;
+
 /*
 * Creer la fonction d'initialization. Utiliser la fonction allocate au lieu de malloc.
 */

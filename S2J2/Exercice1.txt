@@ -1,0 +1,8 @@
+Line 6: O(n)
+Line 17: O(n)
+Line 21: O(n)
+Line 22: O(n)
+Line 25: O(n)
+Line 31: O(n)
+Line 32: O(n)
+Total: O(n³)

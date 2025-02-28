@@ -1,0 +1,3 @@
+Line 10: O(n)
+Line 13: O(n)
+Total: O(n²)

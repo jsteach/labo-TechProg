@@ -1,0 +1,3 @@
+Line 21: O(n)
+Line 49: O(log n)
+Total: O(n log n)

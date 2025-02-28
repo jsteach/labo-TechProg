@@ -1,0 +1,5 @@
+Line 12: O(n)
+Line 15: O(n)
+Line 19: O(n)
+Line 24: O(n)
+Total: O(n)

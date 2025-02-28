@@ -1,0 +1,3 @@
+Line 10: O(n)
+Line 20: O(n)
+Total: O(n)
