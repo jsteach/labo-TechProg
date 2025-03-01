@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="Sources">
+			<UniqueIdentifier>{CB15FBA0-ABF7-4312-9115-B021555DD6CB}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS4J1\Sources\labo.h">
+			<Filter>Sources</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS4J1\Sources\labo.c">
+			<Filter>Sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:\COURS DEC\1ère Année\Session Hiver\Technique de programmation\labo-TechProg\labS4J1\Sources\main.c">
+			<Filter>Sources</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+	</ItemGroup>
+	<ItemGroup>
+	</ItemGroup>
+	<ItemGroup>
+	</ItemGroup>
+</Project>

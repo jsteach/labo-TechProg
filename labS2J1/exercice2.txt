@@ -1,0 +1,4 @@
+L12 O(n)
+L19 O(n)
+L24 O(n)
+Total O(n)

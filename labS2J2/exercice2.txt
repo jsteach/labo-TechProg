@@ -1,0 +1,6 @@
+L17 O(n)
+L17 O(1)
+L20 O(n)
+L22 O(n)
+
+Total O(n) + O(n²) = O(n²)
