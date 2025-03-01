@@ -1,0 +1,5 @@
+excercice0.c
+-l.20 O(n)
+-l.21 O(1)
+-l.23 O(n)
+Total:O(n^2)
