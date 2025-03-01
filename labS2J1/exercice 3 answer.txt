@@ -1,0 +1,6 @@
+L9 O(n)
+L10 O(n)
+L17 O(n)
+L23 O(1)
+L24 O(1)
+total: O(n)

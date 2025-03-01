@@ -1,0 +1,11 @@
+L6 O(n)
+L7 ?
+L17 O(n)
+L21 O(n)
+L22 O(1)
+L25 O(n)
+L31 O(1)
+L32 O(n)
+Total O(n)
+ 
+

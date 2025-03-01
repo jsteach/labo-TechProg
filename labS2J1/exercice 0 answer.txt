@@ -1,0 +1,7 @@
+L5 O(n)
+L16 O(n)
+17 O(n)
+L21 O(n)
+Total: O(n)
+
+

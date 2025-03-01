@@ -6,6 +6,11 @@ void* allocate(size_t size);
 /*
 * Declarer une structure de donner appeler Stack qui contient une propriete, max_size de type size_t,top de type size_t et un tableau de type void**.
 */
+typedef struct Stack {
+	int top;
+	int max_size;
+	void** data[512];
+}Stack;
 
 typedef struct person_t {
 	char name[256];

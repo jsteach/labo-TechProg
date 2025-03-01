@@ -1,0 +1,6 @@
+L12 O(n)
+L16 O(1)
+L20 O(n)
+L25 O(n)
+L38 O(n)
+Total: O(n) 
