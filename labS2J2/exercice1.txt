@@ -1,0 +1,7 @@
+L6 O(n)
+L17 O(n)
+L21 O(n)
+L25 O(n)
+
+Total O(n) + O(n) + O(n*n)
+Total O(n) + O(n²)
