@@ -1,5 +1,8 @@
 #include <stdint.h>
 #include <assert.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 
 
 
@@ -8,6 +11,17 @@ void* allocate(size_t size);
 /*
 * Declarer une structure de donnee appeler Queue qui est un noeud comme le Node de la liste doublement chainee. Declare aussi un noeud qui va avoir le nom Node.
 */
+typedef struct Node {
+	void* data;
+	struct Node* prev;
+	struct Node* next;
+}Node;
+typedef struct Queue{
+	Node* head;
+	Node* tail;
+} Queue;
+
+
 
 typedef struct person_t {
 	char name[256];
@@ -18,6 +32,7 @@ typedef struct person_t {
 * Ajouter l'element sur la queue/file.
 */
 void push(Queue* q, Node* n);
+
 
 /*
 * Enlever l'element de la queue/file et retourner le noeud. Si jamais il n'y a pas de noeud, retourner NULL.
