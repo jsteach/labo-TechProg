@@ -1,0 +1,7 @@
+ln9 O(n)
+ln10 O(n)
+ln3 O(2n)
+ln16 O(2n)
+ln24 O(2n)
+
+Global O(n)

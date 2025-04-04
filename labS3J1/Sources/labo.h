@@ -5,8 +5,13 @@ void* allocate(size_t size);
 
 
 /*
-* Déclarer une structure de donnée appeler Node qui est un noeud d'une liste simplement chaînée.
+* Déclarer une structure de donnée dans le .h appeler Node qui est un noeud d'une liste simplement chaînée.
 */
+typedef struct Node Node;
+struct Node{
+	void* data;
+	Node* next;
+};
 
 typedef struct person_t {
 	char name[256];

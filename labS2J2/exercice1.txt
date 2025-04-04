@@ -1,0 +1,6 @@
+ln4 O(1)
+ln13 O(1)
+ln16 O(n)
+ln17 O(log n)
+ln21 O(m)
+fonction Global O(n log m)
