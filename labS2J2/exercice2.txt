@@ -1,0 +1,8 @@
+ln4 O(n)
+ln18 O(n)
+ln19 O(1)
+ln21 O(n)
+ln23 O(n)
+ln29 O(n)
+
+Global O(n)

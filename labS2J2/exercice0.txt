@@ -1,0 +1,7 @@
+ln13 O(n)
+ln15 O(n)
+ln21 O(n)
+fonction combine O(n)
+ln50 O(log n)
+
+fonction Global O(n log n)
