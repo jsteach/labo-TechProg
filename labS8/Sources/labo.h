@@ -19,6 +19,11 @@ void* stack_pop(Stack* s);
 * TreeNode a aussi deux propriete de type TreeNode nommer left et right.
 */
 
+typedef struct TreeNode {
+	void* data;
+	TreeNode* left;
+	TreeNode* right;
+}TreeNode;
 
 
 typedef struct Node Node;

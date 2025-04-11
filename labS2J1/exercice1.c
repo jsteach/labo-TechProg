@@ -7,10 +7,10 @@ void sort(int arr[], int n)
     int y;
     int id_minimum;
 
-    for (i = 0; i < n-1; ++i)
+    for (i = 0; i < n-1; ++i)       //O(n)
     {
         id_minimum = i;
-        for (y = i+1; y < n; ++y){
+        for (y = i+1; y < n; ++y){      //O(n)
             if (arr[y] < arr[id_minimum])
                 id_minimum = y;
         }
@@ -19,7 +19,7 @@ void sort(int arr[], int n)
         arr[id_minimum] = arr[i];
         arr[i] = temp;  
     }
-}
+}           //O(n^2)
 
 int main()
 {
@@ -28,9 +28,11 @@ int main()
 	sort(arr, n);
 	printf("Sorted array is: ");
     int i = 0;
-    for(; i < n-1; ++i ){
+    for(; i < n-1; ++i ){           //O(n)
         printf(" %i,",arr[i]);
     }
     printf(" %i\n",arr[i]);
 	return 0;
 }
+
+//total: O(n^2)
