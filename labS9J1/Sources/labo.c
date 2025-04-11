@@ -5,11 +5,14 @@
 * Retourner ensuite le pointeur vers le Node.
 */
 Node* create_node(void* data) {
+	printf("%s\n", (char*)data);
 	Node* newNode = (Node*)allocate(sizeof(Node));
-	memset(newNode->adj, 0, sizeof(newNode->adj) * 16);
+	(char*)newNode->data = (char*)data;
+	memset(newNode->adj, 0, sizeof(newNode->adj));
 	newNode->visited = 0;
 	newNode->len = 0;
 	newNode->revPath = (QNode*)allocate(sizeof(QNode));
+	newNode->revPath->data = newNode;
 	return newNode;
 };
 
@@ -17,7 +20,9 @@ Node* create_node(void* data) {
 * Ajouter le node dans la liste d'adjacence de root.
 */
 void add_adjacent_node(Node* root, Node* node) {
-
+	root->adj[root->len] = node;
+	root->adj[root->len]->revPath->prev = root->revPath;
+	root->len++;
 };
 
 /*
@@ -25,7 +30,34 @@ void add_adjacent_node(Node* root, Node* node) {
 * La Stack devrait contenir la liste en ordre inverse de celle parcouru. i.e. si le chemin est A -> B -> C la stack avec son pop devrait retourner C -> B -> A
 */
 int dfs(Node* root[], int len, Node* curr, void* key, Stack* s) {
+	int VisitedCounter = 0;
 
+	for (int i = 0; i < len; i++) {
+		root[i]->visited = 0;
+	}
+	if (curr == NULL) {
+		curr = root[0]; // Commencer a l'index 0 de root si le curr n'existe pas
+	}
+	stack_push(s, curr); // Créer le stack
+	curr->visited = 1;
+
+	while (s->top > -1) {
+		Node* PoppedNode = stack_pop(s);
+		curr = PoppedNode;
+		VisitedCounter++;
+
+		if (curr->data == key) {
+			return VisitedCounter;
+		}
+		for (int i = 0; i < curr->len; i++) {
+			if (curr->adj[i]->visited == 0) {
+				curr->adj[i]->visited = 1;
+				stack_push(s, curr->adj[i]);
+			}
+		}
+
+	}
+	return -1;
 };
 
 /*

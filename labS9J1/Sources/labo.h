@@ -39,7 +39,7 @@ void* queue_pop(Queue* q);
 */
 
 typedef struct Node Node;
-typedef struct {
+typedef struct Node{
 	void* data;
 	Node* adj[INT8_MAX];
 	uint8_t len;
