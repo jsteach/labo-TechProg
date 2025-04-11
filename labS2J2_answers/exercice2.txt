@@ -1,0 +1,7 @@
+l6 O(n)
+l19 O(!n) (je crois puisque c'est un boucle infinie...)
+l21 O(n)
+l23 O(n)
+l29 O(n)
+l32 O(1)
+Total O(n^2)

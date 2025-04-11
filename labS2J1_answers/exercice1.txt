@@ -1,0 +1,5 @@
+l10 O(n)
+l13 O(n^2)
+l14 O(n^2)
+l31 O(n)
+Total O(n^2)

@@ -1,0 +1,4 @@
+l5 O(n)
+l7 O(n)
+l20 O(n)
+Total O(n)

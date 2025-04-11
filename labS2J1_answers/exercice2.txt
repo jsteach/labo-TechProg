@@ -1,0 +1,7 @@
+l10 O(1)
+l12 O(n)
+l15 O(1)
+l19 O(n)
+l24 O(n)
+l38 O(n)
+Total O(n)
