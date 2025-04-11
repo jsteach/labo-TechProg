@@ -2,7 +2,7 @@
 
 Node* create_node(void* data) {
 	Node* newNode = allocate(sizeof(Node));
-	memset(newNode->adj, 0, sizeof(newNode->adj));
+	memset(newNode->adj, 0, sizeof(Node*) * UINT8_MAX);
 	newNode->visited = 0;
 	newNode->len = 0;
 	newNode->revPath = allocate(sizeof(QNode));
@@ -35,7 +35,7 @@ int bfs(Node* root[], void* key, Stack* s) {
 			
 		currNode = queue_pop(&queue);
    		currNode->visited = 1;
- 		char data = (char)currNode->data;
+ 		char* data = (char*)currNode->data;
   		if (data == key) {
 			return 1;
 		}
