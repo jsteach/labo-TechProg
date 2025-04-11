@@ -13,22 +13,33 @@ Node* create_node(void* data) {
 	return n->next;
 }
 void add_adjacent_node(Node* root, Node* node){
-	node = root;
-	node = node->visited;
-	node->visited = 0;
-	root = allocate(sizeof(Node));
-	while (root != root->visited) {
-		if (root != root->visited) {
-			return node->len;
-		}
-		if (node->visited > node->len) {
-			node->visited = root->len;
-			root->len = revPath;
-		}   
-	}
+	root->adj[UINT8_MAX] = node;
+	root->len++;
 }
 int dfs(Node* root[], int len, Node* curr, void* key, Stack* s) {
-
+	s->max = 3;
+	s->top = -1;
+	s->elements = malloc(sizeof(Stack));
+	if (s->top + 1 < s->max) {
+		s->top += 1;
+		s->elements[s->top] = key;
+	}
+	curr = root;
+	Node* edge;
+	for (int i = 0; i < 1; i++) {
+	root[i]->data = curr->visited;
+		if (curr->visited == key) {
+			return;
+		}
+		edge = root[i]; 
+		if (root[i] == key) {
+			return 1;
+		}
+		else {
+			edge = root[i]; 
+		}
+		return 0;
+	}
 }
 int bfs(Node* root[], void* key, Stack* s) {
 
