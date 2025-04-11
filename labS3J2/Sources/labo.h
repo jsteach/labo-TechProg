@@ -12,6 +12,13 @@ typedef struct person_t {
 	size_t age;
 } Person;
 
+typedef struct Node Node;
+
+struct Node {
+	void* data;
+	Node* prev;
+	Node* next;
+};
 
 /*
 * Creer un noeud et l'ajouter apres le noeud currNode. Considerer la propriete next et prev.
