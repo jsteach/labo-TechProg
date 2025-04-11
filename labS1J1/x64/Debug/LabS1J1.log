@@ -1,0 +1,4 @@
+﻿  labo.c
+C:\Users\2430063\labo-TechProg\labS1J1\Sources\labo.c(17,14): warning C4267: '=' : conversion de 'size_t' en 'int', perte possible de données
+C:\Users\2430063\labo-TechProg\labS1J1\Sources\labo.c(16,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  LabS1J1.vcxproj -> C:\Users\2430063\labo-TechProg\build\x64\Debug\LabS1J1.exe

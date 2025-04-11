@@ -1,0 +1,5 @@
+﻿  labo.c
+C:\Users\2430063\labo-TechProg\LabS3J2\Sources\labo.h(16,2): warning C4091: 'typedef ' : ignoré à gauche de 'Node' quand aucune variable n'est déclarée
+  (compiler le fichier source '../LabS3J2/Sources/labo.c')
+  
+  LabS3J2.vcxproj -> C:\Users\2430063\labo-TechProg\build\x64\Debug\LabS3J2.exe
