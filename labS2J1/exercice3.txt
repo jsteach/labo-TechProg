@@ -1,0 +1,4 @@
+9 O(log n)
+10 O(Log n)
+
+Total (Log n)
