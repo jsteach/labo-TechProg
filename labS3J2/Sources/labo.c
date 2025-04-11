@@ -2,7 +2,7 @@
 #include <cstdbool>
 
 void insert(Node* currNode, void* newData) {
-	Node* newNode = malloc(sizeof(Node));
+	Node* newNode = malloc(sizeof(Node)); 
 	newNode->data = newData;
 	newNode->prev = NULL;
 	newNode->next = NULL;
