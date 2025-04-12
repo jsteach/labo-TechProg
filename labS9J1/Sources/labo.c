@@ -21,7 +21,6 @@ Node* create_node(void* data) {
 */
 void add_adjacent_node(Node* root, Node* node) {
 	root->adj[root->len] = node;
-	root->adj[root->len]->revPath->prev = root->revPath;
 	root->len++;
 };
 
@@ -47,11 +46,18 @@ int dfs(Node* root[], int len, Node* curr, void* key, Stack* s) {
 		VisitedCounter++;
 
 		if (curr->data == key) {
+			while (s->top > -1) stack_pop(s);
+			stack_push(s, curr);
+			while (curr->revPath->prev != NULL) {
+				curr = curr->revPath->prev->data;
+				stack_push(s, curr);
+			}
 			return VisitedCounter;
 		}
 		for (int i = 0; i < curr->len; i++) {
 			if (curr->adj[i]->visited == 0) {
 				curr->adj[i]->visited = 1;
+				curr->adj[i]->revPath->prev = curr->revPath;
 				stack_push(s, curr->adj[i]);
 			}
 		}
