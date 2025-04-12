@@ -39,34 +39,81 @@ void add_adjacent_node(Node* root, Node* node) {
 * i.e. si le chemin est A -> B -> C la stack avec son pop devrait retourner C -> B -> A
 */
 int dfs(Node* root[], int len, Node* curr, void* key, Stack* s) {
-for (int i = 0; i < len; i++) {
-		Node* adj = ((Node*)root[i]->adj)->data;
+	if (curr == NULL) {
+		curr = root[0];
+	}
 
-		if (root[i]->data != key && adj->data != key) {
-			if (adj->visited == 0) {
-				root[i]->visited = 1;
-				adj->visited = 1;
-				stack_push(s, root[i]);
+	curr->visited = 1;
+
+	if (curr->data == key) {
+		return 1;
+	}
+
+	for (int i = 0; i < curr->len;i++) {
+		if (curr->adj[i] != NULL && curr->adj[i]->visited != 1 && curr->adj[i]->data != key) {
+			stack_push(s, curr);
+				
+			if (dfs(root, len, curr->adj[i], key, s)) {
+				return 1;
 			}
 		}
 
-		if (root[i]->data == key) {
-			stack_push(s, root[i]);
-			return 0;
+		if(curr->adj[i]->data == key) {
+			stack_pop(s);
+			return 1;
 		}
-		if (adj->data == key) {
-			adj->visited = 1;
-			stack_push(s, root[i]);
-			stack_push(s, adj);
-			return 0;
-		}
-		root[i]->visited = 1;
 	}
+
 	return 0;
+
+//for (int i = 0; i < len; i++) {
+//		Node* adj = ((Node*)root[i]->adj)->data;
+//
+//		if (root[i]->data != key && adj->data != key) {
+//			if (adj->visited == 0) {
+//				root[i]->visited = 1;
+//				adj->visited = 1;
+//				stack_push(s, root[i]);
+//			}
+//		}
+//
+//		if (root[i]->data == key) {
+//			stack_push(s, root[i]);
+//			return 0;
+//		}
+//		if (adj->data == key) {
+//			adj->visited = 1;
+//			stack_push(s, root[i]);
+//			stack_push(s, adj);
+//			return 0;
+//		}
+//		root[i]->visited = 1;
+//	}
+//	return 0;
 }
 
 /*
-* Programmer l'algorithme de breath first search afin de trouver la cle. Pour programmer cet algorithme, vous avez besoins d'une file/queue, ca definition est fourni.
+* Programmer l'algorithme de breath first search afin de trouver la cle. 
+* Pour programmer cet algorithme, vous avez besoins d'une file/queue, ca definition est fourni.
 * La Stack devrait contenir la liste en ordre du chemin parcouru. i.e. si le chemin est A -> B -> C la stack avec son pop devrait retourner A -> B -> C
 */
-int bfs(Node* root[], void* key, Stack* s) {}
+int bfs(Node* root[], void* key, Stack* s) {
+	Queue* q = (Queue*)allocate(sizeof(Queue));
+	queue_init(q);
+	queue_push(q, root[0]);
+
+	stack_push(s, root[0]);
+
+	while (q!=NULL) {
+		Node* temp = queue_pop(q);
+		if (((Node*)temp)->data == key) {
+			break;
+		}
+		
+		for (int i = 0; i < root[i]->len;i++) {
+			queue_push(q, ((Node*)root[i]->adj)->data);
+			((Node*)root[i]->adj)->visited = 1;
+			((Queue*)root[i]->adj)->prev = root[i];
+		}
+	}
+}
