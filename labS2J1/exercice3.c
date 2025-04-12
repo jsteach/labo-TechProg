@@ -11,7 +11,7 @@ int subSearch(int* arr,int n, int key, int start){
   if(a != -1) return a;
   if(b != -1) return b;
   return -1;
-}
+}   //O(n)
 
 int search(int* arr,int n, int key){
   return subSearch(arr,n,key,-2);

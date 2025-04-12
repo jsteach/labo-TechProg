@@ -3,7 +3,7 @@
 
 size_t strlen(char* str){
     size_t i = 0;
-    while(str[i] != '\0'){
+    while(str[i] != '\0'){          //O(n)
         ++i;
     }
     return i;
