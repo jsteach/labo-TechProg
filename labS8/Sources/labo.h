@@ -18,7 +18,7 @@ void* stack_pop(Stack* s);
 * Vous devez definir une noeud que vous appelerez TreeNode. TreeNode va avoir une propriete data lui permettant de recevoir de l'information de different type. 
 * TreeNode a aussi deux propriete de type TreeNode nommer left et right.
 */
-
+typedef struct TreeNode TreeNode; //je sais pas ce que j'ai fait, mais j'ai fix Fibo!!!! et je pense que ca vient en parti de cet ajout
 typedef struct TreeNode {
 	void* data;
 	TreeNode* left;

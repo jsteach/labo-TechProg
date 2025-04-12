@@ -37,8 +37,7 @@ void* queue_pop(Queue* q);
 * une propriete de type uint8_t nommer path_from. Cette derniere, sera utiliser pour rebrousser chemin.
 */
 typedef struct Node Node;
-struct Node
-{
+struct Node {
 	void* data;
 	uint8_t cost;
 	uint8_t path_from;
