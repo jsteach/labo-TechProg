@@ -44,52 +44,21 @@ int dfs(Node* root[], int len, Node* curr, void* key, Stack* s) {
 	}
 
 	curr->visited = 1;
+	stack_push(s, curr);
 
 	if (curr->data == key) {
 		return 1;
 	}
 
 	for (int i = 0; i < curr->len;i++) {
-		if (curr->adj[i] != NULL && curr->adj[i]->visited != 1 && curr->adj[i]->data != key) {
-			stack_push(s, curr);
-				
+		if (curr->adj[i] != NULL && curr->adj[i]->visited != 1) {
 			if (dfs(root, len, curr->adj[i], key, s)) {
 				return 1;
 			}
 		}
-
-		if(curr->adj[i]->data == key) {
-			stack_pop(s);
-			return 1;
-		}
 	}
-
+	stack_pop(s);
 	return 0;
-
-//for (int i = 0; i < len; i++) {
-//		Node* adj = ((Node*)root[i]->adj)->data;
-//
-//		if (root[i]->data != key && adj->data != key) {
-//			if (adj->visited == 0) {
-//				root[i]->visited = 1;
-//				adj->visited = 1;
-//				stack_push(s, root[i]);
-//			}
-//		}
-//
-//		if (root[i]->data == key) {
-//			stack_push(s, root[i]);
-//			return 0;
-//		}
-//		if (adj->data == key) {
-//			adj->visited = 1;
-//			stack_push(s, root[i]);
-//			stack_push(s, adj);
-//			return 0;
-//		}
-//		root[i]->visited = 1;
-//	}
-//	return 0;
 }
 
 /*
@@ -100,20 +69,31 @@ int dfs(Node* root[], int len, Node* curr, void* key, Stack* s) {
 int bfs(Node* root[], void* key, Stack* s) {
 	Queue* q = (Queue*)allocate(sizeof(Queue));
 	queue_init(q);
+
 	queue_push(q, root[0]);
+	root[0]->visited = 1;
+	root[0]->revPath = NULL;
 
-	stack_push(s, root[0]);
+	while (q->prev!=NULL) {
+		Node* temp = (Node*)queue_pop(q);
 
-	while (q!=NULL) {
-		Node* temp = queue_pop(q);
 		if (((Node*)temp)->data == key) {
-			break;
+			Node* revPath = temp;
+			while (revPath != NULL) {
+				stack_push(s, revPath);
+				revPath = (Node*)revPath->revPath;
+			}
+			return 1;
 		}
 		
-		for (int i = 0; i < root[i]->len;i++) {
-			queue_push(q, ((Node*)root[i]->adj)->data);
-			((Node*)root[i]->adj)->visited = 1;
-			((Queue*)root[i]->adj)->prev = root[i];
+		for (int i = 0; i < temp->len;i++) {
+			Node* adj = temp->adj[i];
+			if (adj != NULL && adj->visited != 1) {
+				queue_push(q, adj);
+				adj->visited = 1;
+				adj->revPath = temp;
+			}
 		}
 	}
+	return 0;
 }
