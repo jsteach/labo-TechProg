@@ -31,6 +31,7 @@ int bfs(Node* root[], void* key, Stack* s) {
 	queue_init(&queue);
 	Node* currNode = root[0];
 	queue_push(&queue, currNode);
+	int i = 1;
 
   	while (currNode != NULL)
 	{
@@ -44,11 +45,10 @@ int bfs(Node* root[], void* key, Stack* s) {
 
 			while (pathNode != NULL) {
 				stack_push(s, pathNode);
-				pathNode = pathNode->revPath->prev;
+				pathNode = pathNode->revPath->prev; 
 			}
-		
-			
-			return 1;
+
+			return i;
 		}
 
  		for (int j = 0; j < currNode->len; j++) {
@@ -56,7 +56,8 @@ int bfs(Node* root[], void* key, Stack* s) {
 			currNode->adj[j]->visited = 1;
 			currNode->adj[j]->revPath->prev = currNode;
  		}
-			
+		
+		i++;
  	}
 	return 0;
 
