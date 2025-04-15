@@ -1,0 +1,5 @@
+﻿  labo.c
+  main.c
+C:\Users\2430063\labo-TechProg\LabS8\Sources\main.c(39,20): warning C4018: '>' : incompatibilité signed/unsigned
+C:\Users\2430063\labo-TechProg\LabS8\Sources\main.c(111,1): warning C4715: 'queue_pop' : les chemins de contrôle ne retournent pas tous une valeur
+  LabS8.vcxproj -> C:\Users\2430063\labo-TechProg\build\x64\Debug\LabS8.exe

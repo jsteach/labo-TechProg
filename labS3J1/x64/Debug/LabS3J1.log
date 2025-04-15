@@ -1,0 +1,3 @@
+﻿  labo.c
+C:\Users\2430063\labo-TechProg\labS3J1\Sources\labo.c(49,1): warning C4715: 'removeByData' : les chemins de contrôle ne retournent pas tous une valeur
+  LabS3J1.vcxproj -> C:\Users\2430063\labo-TechProg\build\x64\Debug\LabS3J1.exe

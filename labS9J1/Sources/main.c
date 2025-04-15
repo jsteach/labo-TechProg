@@ -44,6 +44,7 @@ void queue_push(Queue* q, void* data) {
 		q->next = temp->prev = n;
 		n->next = temp;
 	}
+	q->count++;
 }
 void* queue_pop(Queue* q) {
 	if (q->prev != NULL) {
@@ -51,7 +52,7 @@ void* queue_pop(Queue* q) {
 		if(temp->prev != NULL)
 			temp->prev->next = NULL;
 		q->prev = temp->prev;
-		q->count++;
+		q->count--;
 		return temp->data;
 	}
 	return NULL;
