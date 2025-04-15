@@ -47,7 +47,6 @@ int bfs(Node* root[], void* key, Stack* s) {
 				stack_push(s, pathNode);
 				pathNode = pathNode->revPath->prev; 
 			}
-
 			return i;
 		}
 
