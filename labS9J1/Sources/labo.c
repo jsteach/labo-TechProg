@@ -7,6 +7,7 @@ Node* create_node(void* data) {
 	newNode->len = 0;
 	newNode->revPath = allocate(sizeof(QNode));
 	newNode->revPath->prev = NULL;
+	newNode->data = data;
 	return newNode;
 }
 
@@ -20,6 +21,7 @@ void add_adjacent_node(Node* root, Node* node) {
 * La Stack devrait contenir la liste en ordre inverse de celle parcouru. i.e. si le chemin est A -> B -> C la stack avec son pop devrait retourner C -> B -> A
 */
 int dfs(Node* root[], int len, Node* curr, void* key, Stack* s) {
+
 
 	return 0;
 }
@@ -37,6 +39,15 @@ int bfs(Node* root[], void* key, Stack* s) {
    		currNode->visited = 1;
  		char* data = (char*)currNode->data;
   		if (data == key) {
+
+			Node* pathNode = currNode; 
+
+			while (pathNode != NULL) {
+				stack_push(s, pathNode);
+				pathNode = pathNode->revPath->prev;
+			}
+		
+			
 			return 1;
 		}
 
