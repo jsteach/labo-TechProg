@@ -61,7 +61,7 @@ void* queue_pop(Queue* q) {
 static uint8_t* heap = NULL;
 static size_t heap_top = 0;
 void* allocate(size_t size) {
-	size_t old_top = heap_top;
+ 	size_t old_top = heap_top;
 	heap_top += size;
 	assert(heap_top <= HEAP_SIZE);
 	return &heap[old_top];

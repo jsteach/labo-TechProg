@@ -21,9 +21,32 @@ void add_adjacent_node(Node* root, Node* node) {
 * La Stack devrait contenir la liste en ordre inverse de celle parcouru. i.e. si le chemin est A -> B -> C la stack avec son pop devrait retourner C -> B -> A
 */
 int dfs(Node* root[], int len, Node* curr, void* key, Stack* s) {
+	// Si curr est NULL, on commence par le premier nœud de root
+	if (curr == NULL) {
+		curr = root[0];
+	}
 
+	// Marquer le nœud courant comme visité
+	curr->visited = 1;
 
-	return 0;
+	// Comparer les données du nœud courant avec la clé
+	if (strcmp((char*)curr->data, (char*)key) == 0) {
+		stack_push(s, curr); // Pousser le nœud courant sur la pile si la clé est trouvée
+		return 1; // Clé trouvée
+	}
+
+	// Explorer les voisins
+	for (int j = 0; j < curr->len; j++) {
+		// Appel récursif de DFS
+		if (!curr->adj[j]->visited) {
+			if (dfs(root, len, curr->adj[j], key, s)) {
+				stack_push(s, curr); // Pousser le nœud courant sur la pile si la clé est trouvée dans le sous-arbre
+				return 1; // Clé trouvée
+			}
+		}
+	}
+
+	return 0; // Clé non trouvée
 }
 
 int bfs(Node* root[], void* key, Stack* s) {
@@ -38,8 +61,7 @@ int bfs(Node* root[], void* key, Stack* s) {
 			
 		currNode = queue_pop(&queue);
    		currNode->visited = 1;
- 		char* data = (char*)currNode->data;
-  		if (data == key) {
+  		if (strcmp((char*)currNode->data, (char*)key) == 0) {
 
 			Node* pathNode = currNode; 
 
