@@ -80,10 +80,6 @@ void dijkstra(AdjMatrix* graph, int startNodeIndex, int endNodeIndex, Stack* sol
                     nextNodeIndex = i;
                 }
             }
-            if (nextNodeIndex == -1) {
-                break; 
-            }
-
             currentNodeIndex = nextNodeIndex;
         }
     }
