@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <assert.h>
 
+
 void* allocate(size_t size);
 
 typedef struct {
@@ -15,10 +16,17 @@ void* stack_pop(Stack* s);
 
 
 /*
-* Vous devez definir une noeud que vous appelerez TreeNode. TreeNode va avoir une propriete data lui permettant de recevoir de l'information de different type. 
+* Vous devez definir une noeud que vous appelerez TreeNode. 
+* TreeNode va avoir une propriete data lui permettant de recevoir de l'information de different type. 
 * TreeNode a aussi deux propriete de type TreeNode nommer left et right.
 */
+typedef struct TreeNode TreeNode;
 
+struct TreeNode {
+	void* data;
+	TreeNode* left;
+	TreeNode* right;
+};
 
 
 typedef struct Node Node;
@@ -51,11 +59,13 @@ TreeNode* tree_create_node(void* data);
 void tree_add_node(TreeNode* root, TreeNode* node);
 
 /*
-* Programmer l'algorithme de depth first search afin de trouver la cle. Pour programmer cet algorithme, vous avez besoins d'une pile/stack, ca definition est fourni.
+* Programmer l'algorithme de depth first search afin de trouver la cle. 
+* Pour programmer cet algorithme, vous avez besoins d'une pile/stack, ca definition est fourni.
 */
 int dfs(TreeNode* root, void* key);
 
 /*
-* Programmer l'algorithme de breath first search afin de trouver la cle. Pour programmer cet algorithme, vous avez besoins d'une file/queue, ca definition est fourni.
+* Programmer l'algorithme de breath first search afin de trouver la cle. 
+* Pour programmer cet algorithme, vous avez besoins d'une file/queue, ca definition est fourni.
 */
 int bfs(TreeNode* root, void* key);
