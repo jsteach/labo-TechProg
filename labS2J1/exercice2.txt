@@ -1,0 +1,6 @@
+ln12 O(n)
+ln15 O(1)
+ln24 O(n)
+ln35 O(n)
+
+Global O(n)
