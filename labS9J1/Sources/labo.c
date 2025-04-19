@@ -10,11 +10,11 @@ Node* create_node(void* data) {
 	newnode->data = data;
 	newnode->visited = 0;
 	newnode->len = 0;
-	memset(newnode->adj, 0, sizeof(Node) * UINT8_MAX);
+	memset(newnode->adj, 0, sizeof(Node*) * UINT8_MAX);
 
-	QNode* Qnode = (QNode*)allocate(sizeof(QNode));
-	Qnode->next = NULL;
-	Qnode->prev = NULL;
+	newnode->revPath = (QNode*)allocate(sizeof(QNode));
+	newnode->revPath->next = NULL;
+	newnode->revPath->prev = NULL;
 
 	return newnode;
 }
@@ -67,23 +67,25 @@ int dfs(Node* root[], int len, Node* curr, void* key, Stack* s) {
 * La Stack devrait contenir la liste en ordre du chemin parcouru. i.e. si le chemin est A -> B -> C la stack avec son pop devrait retourner A -> B -> C
 */
 int bfs(Node* root[], void* key, Stack* s) {
-	Queue* q = (Queue*)allocate(sizeof(Queue));
+	Queue* q = allocate(sizeof(Queue));
 	queue_init(q);
+	int count = 0;
 
 	queue_push(q, root[0]);
 	root[0]->visited = 1;
-	root[0]->revPath = NULL;
+	root[0]->revPath->data = NULL;
 
 	while (q->prev!=NULL) {
 		Node* temp = (Node*)queue_pop(q);
+		count++;
 
 		if (((Node*)temp)->data == key) {
 			Node* revPath = temp;
 			while (revPath != NULL) {
 				stack_push(s, revPath);
-				revPath = (Node*)revPath->revPath;
+				revPath = (Node*)revPath->revPath->data;
 			}
-			return 1;
+			return count;
 		}
 		
 		for (int i = 0; i < temp->len;i++) {
@@ -91,9 +93,9 @@ int bfs(Node* root[], void* key, Stack* s) {
 			if (adj != NULL && adj->visited != 1) {
 				queue_push(q, adj);
 				adj->visited = 1;
-				adj->revPath = temp;
+				adj->revPath->data = temp;
 			}
 		}
 	}
-	return 0;
+	return count;
 }

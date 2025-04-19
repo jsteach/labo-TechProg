@@ -25,9 +25,8 @@ AdjMatrix* create_graph(size_t max_nodes){
 	newMatrix->adjGraph = (int**)allocate(sizeof(int*)*max_nodes);
 
 	for (int i = 0; i < max_nodes;i++) {
-	newMatrix->adjGraph[i] = (int*)allocate(sizeof(int));
+		newMatrix->adjGraph[i] = (int*)allocate(sizeof(int));
 		for (int j = 0; j < max_nodes;j++) {
-			newMatrix->adjGraph[j] = (int*)allocate(sizeof(int));
 			newMatrix->adjGraph[i][j] = 0; // Censer etre le cost, mais je ne comprends pas comment l'atteindre....
 		}
 	}
@@ -39,21 +38,47 @@ AdjMatrix* create_graph(size_t max_nodes){
 * Creer un node, lui attribuer le data et l'ajouter dans la matrice d'adjacence.
 */
 void add_node(AdjMatrix* graph, void* data){
-	Node* newNode = (Node*)allocate(sizeof(Node));
-	newNode->data = data;
+	graph->nodes[graph->len++].data = data;
 
-	graph->adjGraph[graph->len][graph->len] = newNode;
-
-	graph->len++;
 	return;
 }
 
 /*
 * Ajouter un lien dans la matrice d'adjacence, d'un noeud a l'autre noeud, en specifiant le cout y etant relier.
 */
-void add_edge(AdjMatrix* graph, int fromNode, int toNode, uint8_t cost){}
+void add_edge(AdjMatrix* graph, int fromNode, int toNode, uint8_t cost){
+	graph->adjGraph[fromNode][toNode] = cost;
+
+	return;
+}
 
 /*
 * Implementer l'algorithme de dijkstra.
 */
-void dijkstra(AdjMatrix* graph, int startNodeIndex, int endNodeIndex, Stack* solvedPath){}
+void dijkstra(AdjMatrix* graph, int startNodeIndex, int endNodeIndex, Stack* solvedPath){
+	Queue* q = allocate(sizeof(Queue));
+	queue_init(q);
+	Node* currNode = startNodeIndex;
+	Node* temp = endNodeIndex;
+
+	/*currNode->visited = 1;
+	currNode->cost = 0;
+
+	while (currNode != temp) {
+
+		for (int i = 0; i < graph->len;i++) {
+			Node* adj = graph->adjGraph[i];
+			if (adj != NULL && adj->visited != 1) {
+				if (currNode->cost > temp->cost) {
+					currNode->cost = temp->cost;
+					currNode->path_from = temp;
+				}
+				queue_push(q, adj);
+				adj->visited = 1;
+				adj->data = temp;
+			}
+		}
+	}*/
+	
+
+}
