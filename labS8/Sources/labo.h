@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <assert.h>
+#include <stdlib.h>
 
 void* allocate(size_t size);
 
@@ -18,7 +19,11 @@ void* stack_pop(Stack* s);
 * Vous devez definir une noeud que vous appelerez TreeNode. TreeNode va avoir une propriete data lui permettant de recevoir de l'information de different type. 
 * TreeNode a aussi deux propriete de type TreeNode nommer left et right.
 */
-
+typedef struct {
+	void* data;
+	TreeNode* left;
+	TreeNode* right;
+}TreeNode;
 
 
 typedef struct Node Node;
