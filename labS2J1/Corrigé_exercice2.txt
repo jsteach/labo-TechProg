@@ -1,0 +1,6 @@
+L12= O(n)
+L19= O(n)
+L24= O(n)
+L38 = O(n)
+
+TOTAL= O(n)

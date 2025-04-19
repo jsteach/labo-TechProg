@@ -1,0 +1,7 @@
+L6= O(n)
+L18= O(n)
+L21= O(n)
+L23= O(n)
+L29= O(k)
+
+TOTAL= O(n^2)
