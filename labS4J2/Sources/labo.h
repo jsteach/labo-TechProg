@@ -14,6 +14,16 @@ typedef struct person_t {
 	size_t age;
 } Person;
 
+typedef struct Node Node;
+
+struct Node {
+	void* data;
+	Node* prev;
+	Node* next;
+};
+
+typedef Node Queue;
+
 /*
 * Ajouter l'element sur la queue/file.
 */
